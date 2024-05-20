@@ -14,7 +14,7 @@ pipeline {
         }
         stage('Start App'){
             steps{
-                powershell(script : 'docker compose -d')
+                powershell(script : 'docker compose up -d')
             }
         }
         stage('Run tests'){
