@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Run tests'){
             steps{
-                powershell(script : 'pytests ./tests/test-sample')
+                powershell(script : 'pytest ./tests/test-sample')
             }
             post{
                 success{
