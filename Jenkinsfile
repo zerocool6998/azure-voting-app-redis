@@ -17,6 +17,11 @@ pipeline {
                 powershell(script : 'docker compose up -d')
             }
         }
+        stage('Adding Pytest'){
+            steps{
+                powershell(script : 'pip install pytest')
+            }
+        }
         stage('Run tests'){
             steps{
                 powershell(script : 'pytest ./tests/test-sample.py')
