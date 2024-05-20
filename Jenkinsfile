@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Docker Build') {
             steps {
-                powershell(script : 'docker compose build')
+                powershell(script : '$Env:DOCKER_SCAN_SUGGEST = "false"; docker build -f ./azure-vote/Dockerfile -t azure-vote-front:v1 .')
             }
         }
     }
