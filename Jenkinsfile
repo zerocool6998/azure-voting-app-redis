@@ -25,7 +25,7 @@ pipeline {
         // }
         stage('Run tests'){
             steps{
-                bat 'powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -Command "pytest ./tests/test-sample.py"'
+                bat 'python -m pytest ./tests/test-sample.py'
                 // powershell(script : 'pytest ./tests/test-sample.py')
             }
             post{
