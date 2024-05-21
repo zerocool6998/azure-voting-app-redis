@@ -20,7 +20,6 @@ pipeline {
         stage('Adding Pytest'){
             steps{
                 // powershell(script : 'pip install pytest')
-                bat 'powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -Command "<your PowerShell command>"'
                 bat 'powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -Command "pip install pytest"'
             }
         }
