@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Docker Build') {
             steps {
-                sh(script : '$Env:DOCKER_SCAN_SUGGEST = "false"; docker compose build')
+                sh(script : 'docker compose build')
             }
         }
         stage('Start App'){
