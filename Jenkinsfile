@@ -17,15 +17,16 @@ pipeline {
                 powershell(script : 'docker compose up -d')
             }
         }
-        stage('Adding Pytest'){
-            steps{
-                // powershell(script : 'pip install pytest')
-                bat 'powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -Command "pip install pytest"'
-            }
-        }
+        // stage('Adding Pytest'){
+        //     steps{
+        //         // powershell(script : 'pip install pytest')
+        //         bat 'powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -Command "pip install pytest"'
+        //     }
+        // }
         stage('Run tests'){
             steps{
-                powershell(script : 'pytest ./tests/test-sample.py')
+                bat 'powershell.exe -NoProfile -NonInteractive -ExecutionPolicy Bypass -Command "pytest ./tests/test-sample.py"'
+                // powershell(script : 'pytest ./tests/test-sample.py')
             }
             post{
                 success{
