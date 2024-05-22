@@ -25,7 +25,7 @@ pipeline {
     
         stage('Run tests'){
             steps{
-                sh(script : 'python3 -m pytest; pytest ./tests/test-sample.py')
+                sh(script : 'pip install pytest; python3 -m pytest ./tests/test-sample.py')
             }
             post{
                 success{
