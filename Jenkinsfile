@@ -17,26 +17,26 @@ pipeline {
                 sh(script : 'docker compose up -d')
             }
         }
-        stage('Pytest'){
-            steps{
-                sh 'pip install pytest'
-            }
-        }
-    
-        // stage('Run tests'){
+        // stage('Pytest'){
         //     steps{
-        //         sh(script : 'pytest ./tests/test-sample.py')
+        //         sh 'pip install pytest'
         //     }
-        //     post{
-        //         success{
-        //             echo "test passed :)"
-        //         }
-        //         failure{
-        //             echo "test failed :("
-        //         }
-        //     }
-
         // }
+    
+        stage('Run tests'){
+            steps{
+                sh(script : 'pip install pytest; pytest ./tests/test-sample.py')
+            }
+            post{
+                success{
+                    echo "test passed :)"
+                }
+                failure{
+                    echo "test failed :("
+                }
+            }
+
+        }
 
         stage('Docker push'){
             steps{
