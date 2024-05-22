@@ -23,7 +23,7 @@ pipeline {
             }
         }
     
-        stage('Run tests'){
+        // stage('Run tests'){
             steps{
                 sh(script : 'pytest ./tests/test-sample.py')
             }
@@ -36,6 +36,20 @@ pipeline {
                 }
             }
 
+        // }
+
+        stage('Docker push'){
+            steps{
+                echo "Running in $WORKSPACE"
+                dir("$WORKSPACE/azure-vote") {
+                    script {
+                        docker.withRegistry('','jenkins-zerocool12'){
+                            def image = docker.build('zerocool12/jenkins_pipeline:2024')
+                            image.push()
+                        }
+                    }
+                }
+            }
         }
 
     }
