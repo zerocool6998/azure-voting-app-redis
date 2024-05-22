@@ -25,7 +25,7 @@ pipeline {
     
         stage('Run tests'){
             steps{
-                sh(script : 'pip install pytest; python3 -m pytest ./tests/test-sample.py')
+                sh(script : 'pip install pytest; /home/zerocool/.local/lib/python3.10/site-packages/pytest ./tests/test-sample.py')
             }
             post{
                 success{
