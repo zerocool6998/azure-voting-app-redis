@@ -24,17 +24,17 @@ pipeline {
         }
     
         // stage('Run tests'){
-            steps{
-                sh(script : 'pytest ./tests/test-sample.py')
-            }
-            post{
-                success{
-                    echo "test passed :)"
-                }
-                failure{
-                    echo "test failed :("
-                }
-            }
+        //     steps{
+        //         sh(script : 'pytest ./tests/test-sample.py')
+        //     }
+        //     post{
+        //         success{
+        //             echo "test passed :)"
+        //         }
+        //         failure{
+        //             echo "test failed :("
+        //         }
+        //     }
 
         // }
 
